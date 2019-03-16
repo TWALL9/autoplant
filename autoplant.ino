@@ -8,6 +8,7 @@ int valveOpenTime = 15000; // milliseconds to stay open
 void setup() {
   // put your setup code here, to run once:
   pinMode(valvePin, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -19,7 +20,7 @@ void loop() {
   // moistureValue/100 = x/1023 -> moistureValue = (x/1023)*100
   
   moistureValue = (analogRead(moistureSensorPin)/1023)*100;
-  
+  Serial.println(moistureValue);
   if (moistureValue < moistureThreshold){
     digitalWrite(valvePin, HIGH); // open the valve
     delay(valveOpenTime);
