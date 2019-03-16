@@ -1,9 +1,9 @@
 int moistureSensorPin = A0;
-int moistureThreshold = 25; // if the read moisture is lower than this, open the valve
+int moistureThreshold = 40; // if the read moisture is lower than this, open the valve
                              // value is between 0-100
 int moistureValue = 0; // the value read by the sensor
 int valvePin = 13;
-int valveOpenTime = 1000; // milliseconds to stay open
+int valveOpenTime = 15000; // milliseconds to stay open
 
 void setup() {
   // put your setup code here, to run once:
@@ -24,5 +24,6 @@ void loop() {
     digitalWrite(valvePin, HIGH); // open the valve
     delay(valveOpenTime);
     digitalWrite(valvePin, LOW); // close the valve
+    delay(60*1000); // wait for one minute
   }
 }
